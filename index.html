@@ -429,29 +429,32 @@
         document.getElementById('mainRsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const submitBtn = this.querySelector('.submit-button-style');
-            submitBtn.innerText = 'Ուղարկվում է...';
-            submitBtn.disabled = true;
-
+            // Собираем введенные гостем данные
             const nameValue = this.querySelector('input[type="text"]:of-type(1)').value;
             const guestsValue = this.querySelector('input[type="text"]:of-type(2)').value;
-            const presenceValue = this.querySelector('input[name="presence"]:checked').value === 'yes' ? 'Կգանք' : 'Չենք գա';
+            const presenceValue = this.querySelector('input[name="presence"]:checked').value === 'yes' ? 'Կգանք' : 'Չենք կարողանա գալ';
 
-            // СЮДА ВСТАВЬТЕ СКОПИРОВАННУЮ ССЫЛКУ ИЗ GOOGLE
-            const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbzk5RloypudrcDp6ZVDLD663KE-9l7fcYPRWSliY0_PCQQQaU3AzAczE0DQdynB-lZU/exec';
+            // Формируем красивый текст сообщения для вас
+            let message = `Привет! Ответ на приглашение:\n`;
+            message += `👤 Имя: ${nameValue}\n`;
+            message += `❓ Присутствие: ${presenceValue}\n`;
+            if (this.querySelector('input[name="presence"]:checked').value === 'yes') {
+                message += `👥 Количество гостей: ${guestsValue}`;
+            }
 
-            // Отправка через JSONP (это 100% обходит любые блокировки телефона)
-            const script = document.createElement('script');
-            script.src = googleScriptUrl + `?name=${encodeURIComponent(nameValue)}&presence=${encodeURIComponent(presenceValue)}&guests=${encodeURIComponent(guestsValue)}&callback=onRsvpSuccess`;
-            document.body.appendChild(script);
-        });
+            // Создаем прямую ссылку на ваш WhatsApp с готовым текстом
+            const phoneNumber = '37433460626';
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-        // Функция, которая сработает сразу после успешной записи в таблицу
-        function onRsvpSuccess(response) {
+            // Сразу перенаправляем гостя в WhatsApp для отправки сообщения
+            window.open(whatsappUrl, '_blank');
+
+            // На самом сайте переключаем экран на красивое уведомление
             document.getElementById('mainRsvpForm').style.display = 'none';
             document.getElementById('successNotification').style.display = 'block';
-        }
+        });
     </script>
+
 
 
 </body>
