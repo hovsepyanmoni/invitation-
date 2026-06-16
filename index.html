@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на помолвку</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fcfbfa;
+            --text-color: #2c2c2c;
+            --accent-color: #8d7b68;
+            --light-accent: #f4f1ea;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .invitation-card {
+            background-color: #ffffff;
+            max-width: 500px;
+            width: 100%;
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        /* Тонкая рамка внутри для придания элегантности */
+        .invitation-card::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid #f0ede6;
+            pointer-events: none;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .ampersand {
+            font-size: 2rem;
+            display: block;
+            margin: 5px 0;
+            color: var(--accent-color);
+            font-style: normal;
+        }
+
+        .main-text {
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin: 30px 0;
+            letter-spacing: 0.05em;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background-color: var(--accent-color);
+            margin: 25px auto;
+            opacity: 0.5;
+        }
+
+        .details {
+            margin-bottom: 40px;
+        }
+
+        .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            letter-spacing: 0.05em;
+        }
+
+        .time, .location {
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 5px;
+            letter-spacing: 0.05em;
+        }
+
+        .location-link {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 2px;
+            margin-top: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .location-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Стили формы RSVP */
+        .rsvp-section {
+            margin-top: 40px;
+            position: relative;
+            z-index: 2; /* Чтобы кнопка нажималась поверх псевдоэлемента карты */
+        }
+
+        .rsvp-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            background-color: var(--bg-color);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .radio-label input {
+            margin-right: 8px;
+            accent-color: var(--accent-color);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--text-color);
+            color: #ffffff;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        #successMessage {
+            display: none;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <div class="subtitle">Приглашение</div>
+        
+        <div class="names">
+            Grisha
+            <span class="ampersand">&</span>
+            Monika
+        </div>
+        
+        <p class="main-text">
+             Սիրով հրավիրում ենք ձեզ կիսելու մեզ հետ մեր համատեղ պատմության ամենակարևոր և հիշարժան պահերից մեկը: Ուրախ կլինենք տեսնել ձեզ մեր նշանադրության գեղեցիկ արարողությանը:
+
+        </p>
+        
+        <div class="divider"></div>
+        
+        <div class="details">
+            <div class="date">29.09.2026</div>
+            <div class="time"> 18:00</div>
+            <div class="divider"></div>
+            <div class="location">«Imperial Hall »</div>
+            <div class="location">Արամ Մանուկյան 1 նրբ. 8 </div>
+            <a href="https://maps.app.goo.gl/kzLXq5jKXAR5f49e6?g_st=ic"target="_blank" class="location-link">Տեսնել քարտեզի վրա </a>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="rsvp-section">
+            <div class="rsvp-title">Հաստատեք Ձեր ներկայությունը </div>
+            <p style="font-size: 0.8rem; font-weight: 300; margin-bottom: 15px;"></p>
+            
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="name"> Անուն ազգանուն </label>
+                    <input type="text" id="name" required placeholder="Օրինակ Աննա և Իգոր ">
+                </div>
+                
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="attendance" value="yes" checked> Սիրով կգամ/ կգանք 
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="attendance" value="no"> Ցավոք,չեմ կարողանա ներկա գտնվել
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Ուղարկել </button>
+            </form>
+            
+            <div id="successMessage"> Շնորհակալություն: Ձեր պատասխանն ընդունված է:⁠ </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Здесь будет логика отправки данных (подробнее в инструкции ниже)
+            const name = document.getElementById('name').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+            
+            console.log(`Ответ: ${name}, Придет: ${attendance}`);
+            
+            // Показываем сообщение об успешной отправке
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
