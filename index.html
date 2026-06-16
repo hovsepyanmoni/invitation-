@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Նշանադրության Հրավեր</title>
     
-    <!-- Подключаем изысканный каллиграфический шрифт для латинских инициалов G & M -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -68,7 +67,7 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Воздушная, тончайшая каллиграфическая монограмма G & M без обрезания хвостов */
+        /* Воздушная, тончайшая каллиграфическая монограмма G & M */
         .initials-box {
             position: relative;
             height: 180px;
@@ -239,7 +238,7 @@
             margin-top: 5px;
         }
 
-        /* ЭКРАН 3: Локация и RSVP Форма */
+        /* ЭКРАН 3: Локация и Текст RSVP */
         .screen-rsvp {
             padding: 40px 0 80px 0;
         }
@@ -282,114 +281,31 @@
             color: #000000;
         }
 
-        .rsvp-form-title {
-            font-size: 1.1rem;
-            font-weight: 200;
-            line-height: 1.7;
-            margin-bottom: 25px;
-            padding: 0 15px;
-            letter-spacing: 0.03em;
-            opacity: 0.9;
-        }
-
-        /* ЭЛЕГАНТНАЯ ФОРМА ОТВЕТА */
-        .rsvp-box {
+        /* ЭЛЕГАНТНЫЙ И ПРОСТОЙ БЛОК RSVP ВМЕСТО ФОРМЫ */
+        .rsvp-text-box {
             max-width: 340px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 30px 20px;
+            padding: 35px 25px;
             border-radius: 15px;
             backdrop-filter: blur(5px);
         }
 
-        .input-field {
-            width: 100%;
-            padding: 14px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 200;
-            margin-bottom: 20px;
-            text-align: center;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .input-field:focus {
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Список выбора гостей */
-        select.input-field {
-            text-align-last: center;
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%23ffffff'><path d='M0 0l5 6 5-6z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: calc(100% - 15px) center;
-        }
-
-        select.input-field option {
-            background-color: #111111;
-            color: #ffffff;
-        }
-
-        .radio-group {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 25px;
-        }
-
-        .radio-label {
-            display: flex;
-            align-items: center;
-            font-size: 0.85rem;
-            font-weight: 200;
-            cursor: pointer;
-            letter-spacing: 0.05em;
-        }
-
-        .radio-label input {
-            margin-right: 8px;
-            accent-color: #ffffff;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: #ffffff;
-            color: #000000;
-            border: none;
-            padding: 15px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: translateY(-2px);
-        }
-
-        .success-message {
-            display: none;
+        .rsvp-title {
             font-size: 0.95rem;
             font-weight: 300;
-            color: #98ff98;
+            line-height: 1.8;
             letter-spacing: 0.05em;
-            animation: fadeIn 0.5s ease forwards;
+            opacity: 0.9;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .rsvp-deadline {
+            font-size: 0.8rem;
+            font-weight: 200;
+            margin-top: 15px;
+            opacity: 0.6;
+            letter-spacing: 0.03em;
         }
 
         .footer-love-svg {
@@ -412,7 +328,6 @@
 
     <div class="container">
 
-        <!-- ЭКРАН 1: Главная обложка -->
         <div class="screen-hero">
             <div class="hero-title">Նշանադրության հրավեր</div>
             
@@ -428,7 +343,6 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 2: Текст приглашения, календарь и таймер -->
         <div class="screen-details">
             <div class="greeting-title">Հարգելի բարեկամներ և ընկերներ,</div>
             
@@ -457,7 +371,6 @@
             <div class="calendar-line" style="margin-top: 0;"></div>
             <div class="time-display">18:00</div>
 
-            <!-- ОБРАТНЫЙ ОТСЧЕТ -->
             <div class="calendar-line" style="margin-bottom: 20px; width: 50px; opacity: 0.2;"></div>
             <div class="countdown-container">
                 <div class="countdown-item">
@@ -479,49 +392,18 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 3: Локация и Форма RSVP -->
         <div class="screen-rsvp">
             <div class="restaurant-name">Imperial Hall</div>
             <div class="restaurant-address">Արամ Մանուկյան 1նրբ. 8</div>
             <a href="https://maps.app.goo.gl/6opnt6nJuQKqpDS7A" target="_blank" class="map-button">Ինչպես հասնել</a>
             
-            <div class="rsvp-form-title">Շնորհակալ կլինենք, եթե նախապես հաստատեք Ձեր ներկայությունը</div>
-            
-            <!-- АНКЕТА RSVP С ПОДДЕРЖКОЙ ОТПРАВКИ НА ПОЧТУ -->
-            <div class="rsvp-box">
-                <form id="rsvpForm" onsubmit="submitForm(event)">
-                    
-                    <!-- Ваш личный ключ Web3Forms интегрирован сюда -->
-                    <input type="hidden" name="access_key" value="Fac37492-ab6a-4f68-a01e-acb17dee1a95">
-                    <input type="hidden" name="subject" value="Новый ответ на приглашение!">
-                    <input type="hidden" name="from_name" value="Сайт Пригласительный">
-
-                    <!-- Поле ввода имени -->
-                    <input type="text" name="Имя гостя" id="guestName" class="input-field" placeholder="Ձեր Անունը" required>
-                    
-                    <!-- Выпадающий список для выбора количества гостей -->
-                    <select name="Количество гостей" id="guestCount" class="input-field" required>
-                        <option value="" disabled selected>Հյուրերի քանակը (Количество гостей)</option>
-                        <option value="1">1 հոգի (1 человек)</option>
-                        <option value="2">2 հոգի (2 человека)</option>
-                        <option value="3">3 հոգի (3 человека)</option>
-                        <option value="4">4 հոգի (4 человека)</option>
-                        <option value="5">5 հոգի (5 человек)</option>
-                    </select>
-                    
-                    <!-- Кнопки выбора присутствия -->
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="Присутствие" value="Приду (Կգամ)" checked onclick="toggleGuestCount(true)"> Կգամ
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="Присутствие" value="Не смогу (Չեմ կարողանա)" onclick="toggleGuestCount(false)"> Չեմ կարողանա
-                        </label>
-                    </div>
-                    
-                    <button type="submit" id="submitBtn" class="submit-btn">Ուղարկել</button>
-                </form>
-                <div id="successMsg" class="success-message">Շնորհակալություն, Ձեր պատասխանը գրանցված է: ✨</div>
+            <div class="rsvp-text-box">
+                <p class="rsvp-title">
+                    Խնդրում ենք նախապես հաստատել Ձեր ներկայությունը անձնական հաղորդագրությամբ:
+                </p>
+                <p class="rsvp-deadline">
+                    (Пожалуйста, подтвердите ваше присутствие личным сообщением)
+                </p>
             </div>
 
             <div class="footer-love-svg">
@@ -534,58 +416,7 @@
         </div>
     </div>
 
-    <!-- СКРИПТЫ -->
     <script>
-        function toggleGuestCount(show) {
-            const selectField = document.getElementById('guestCount');
-            if (show) {
-                selectField.style.display = 'block';
-                selectField.required = true;
-            } else {
-                selectField.value = "0";
-                selectField.style.display = 'none';
-                selectField.required = false;
-            }
-        }
-
-        // Функция отправки данных формы на почту через Web3Forms
-        function submitForm(event) {
-            event.preventDefault();
-            
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = "Ուղարկվում է...";
-            btn.disabled = true;
-
-            const formData = new FormData(document.getElementById('rsvpForm'));
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                if (response.status == 200) {
-                    document.getElementById('rsvpForm').style.display = 'none';
-                    document.getElementById('successMsg').style.display = 'block';
-                } else {
-                    alert("Սխալ տեղի ունեցավ: Խնդրում ենք կրկին փորձել:");
-                    btn.innerText = "Ուղարկել";
-                    btn.disabled = false;
-                }
-            })
-            .catch(error => {
-                alert("Սխալ տեղի ունեցավ: Խնդրում ենք կրկին փորձել:");
-                btn.innerText = "Ուղարկել";
-                btn.disabled = false;
-            });
-        }
-
-        // Таймер обратного отсчета
         function updateCountdown() {
             const eventDate = new Date('September 29, 2026 18:00:00').getTime();
             const now = new Date().getTime();
@@ -614,4 +445,3 @@
     </script>
 </body>
 </html>
-
