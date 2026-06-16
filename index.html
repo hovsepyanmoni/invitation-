@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Նշանադրության Հրավեր</title>
     
-    <!-- Подключаем изысканный каллиграфический шрифт для латинских инициалов G & M -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -68,14 +67,14 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Воздушная, тончайшая каллиграфическая монограмма G & M */
+        /* Воздушная, тончайшая каллиграфическая монограмма G & M без обрезания хвостов */
         .initials-box {
             position: relative;
-            height: 140px;
+            height: 180px; /* Увеличенная высота, чтобы поместились все завитки */
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 10px 0;
+            margin: 20px 0;
         }
 
         .big-letter {
@@ -83,14 +82,14 @@
             font-size: 7.5rem;
             font-weight: 400;
             position: absolute;
-            line-height: 1;
+            line-height: 1.4; /* Свободный межстрочный интервал, чтобы браузер не срезал буквы */
             opacity: 0.7;
             color: #ffffff;
             text-shadow: 1px 2px 10px rgba(0,0,0,0.5);
         }
 
         .letter-g {
-            transform: translate(-30px, -15px);
+            transform: translate(-30px, -25px);
         }
 
         .letter-m {
@@ -103,7 +102,7 @@
             color: rgba(255, 255, 255, 0.3);
             position: absolute;
             z-index: 2;
-            transform: translate(3px, -2px);
+            transform: translate(3px, -12px);
         }
 
         .hero-date {
@@ -292,7 +291,7 @@
             opacity: 0.9;
         }
 
-        /* ЭЛЕГАНТНАЯ ФОРМА ОТВЕТА С КОЛИЧЕСТВОМ ГОСТЕЙ */
+        /* ЭЛЕГАНТНАЯ ФОРМА ОТВЕТА С ПОЛЕМ ДЛЯ ГОСТЕЙ */
         .rsvp-box {
             max-width: 340px;
             margin: 0 auto;
@@ -323,11 +322,11 @@
             border-color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Стилизация выпадающего списка */
+        /* Красивый список выбора гостей */
         select.input-field {
             text-align-last: center;
             cursor: pointer;
-            appearance: none; /* Убираем стандартную стрелочку */
+            appearance: none;
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%23ffffff'><path d='M0 0l5 6 5-6z'/></svg>");
             background-repeat: no-repeat;
             background-position: calc(100% - 15px) center;
@@ -412,7 +411,6 @@
 
     <div class="container">
 
-        <!-- ЭКРАН 1: Главная обложка -->
         <div class="screen-hero">
             <div class="hero-title">Նշանադրության հրավեր</div>
             
@@ -428,7 +426,6 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 2: Текст приглашения, календарь и таймер -->
         <div class="screen-details">
             <div class="greeting-title">Հարգելի բարեկամներ և ընկերներ,</div>
             
@@ -457,7 +454,6 @@
             <div class="calendar-line" style="margin-top: 0;"></div>
             <div class="time-display">18:00</div>
 
-            <!-- ОБРАТНЫЙ ОТСЧЕТ -->
             <div class="calendar-line" style="margin-bottom: 20px; width: 50px; opacity: 0.2;"></div>
             <div class="countdown-container">
                 <div class="countdown-item">
@@ -479,22 +475,18 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 3: Локация и Форма RSVP -->
         <div class="screen-rsvp">
             <div class="restaurant-name">Imperial Hall</div>
             <div class="restaurant-address">Արամ Մանուկյան 1նրբ. 8</div>
-            <a href="https://maps.google.com/?q=Imperial+Hall+Aram+Manukyan+Yerevan" target="_blank" class="map-button">Ինչպես հասնել</a>
+            <a href="https://maps.app.goo.gl/6opnt6nJuQKqpDS7A" target="_blank" class="map-button">Ինչպես հասնել</a>
             
             <div class="rsvp-form-title">Շնորհակալ կլինենք, եթե նախապես հաստատեք Ձեր ներկայությունը</div>
             
-            <!-- ИНТЕРАКТИВНАЯ АНКЕТА С ПОЛЕМ ДЛЯ КОЛИЧЕСТВА ГОСТЕЙ -->
             <div class="rsvp-box">
                 <form id="rsvpForm" onsubmit="submitForm(event)">
-                    <!-- Поле ввода имени -->
                     <input type="text" id="guestName" class="input-field" placeholder="Ձեր Անունը" required>
                     
-                    <!-- Выпадающий список для выбора количества гостей -->
-                    <select id="guestCount" class="input-field" id="guestCountSelect">
+                    <select id="guestCount" class="input-field">
                         <option value="" disabled selected>Հյուրերի քանակը (Количество гостей)</option>
                         <option value="1">1 հոգի (1 человек)</option>
                         <option value="2">2 հոգի (2 человека)</option>
@@ -503,7 +495,6 @@
                         <option value="5">5 հոգի (5 человек)</option>
                     </select>
                     
-                    <!-- Кнопки выбора присутствия -->
                     <div class="radio-group">
                         <label class="radio-label">
                             <input type="radio" name="attendance" value="yes" checked onclick="toggleGuestCount(true)"> Կգամ
@@ -528,9 +519,8 @@
         </div>
     </div>
 
-    <!-- СКРИПТЫ -->
     <script>
-        // Скрытие выбора гостей, если человек выбирает "Не смогу прийти"
+        // Умное скрытие количества гостей, если человек нажал "Не смогу"
         function toggleGuestCount(show) {
             const selectField = document.getElementById('guestCount');
             if (show) {
@@ -542,7 +532,7 @@
             }
         }
 
-        // Функция для обработки отправки формы
+        // Обработка успешного ответа
         function submitForm(event) {
             event.preventDefault();
             document.getElementById('rsvpForm').style.display = 'none';
