@@ -389,73 +389,24 @@
             
             <div class="rsvp-form-title">Շնորհակալ կլինենք, եթե նախապես հաստատեք Ձեր ներկայությունը</div>
             
-            <form class="rsvp-form" id="mainRsvpForm">
-                
-                <!-- Вопрос о присутствии -->
-                <div class="form-section-title">Կգա՞ք:</div>
-                <label class="radio-option">
-                    <input type="radio" name="presence" value="yes" checked> Կգանք
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="presence" value="no"> Չենք կարողանա գալ
-                </label>
-                
-                <!-- Поля ввода имени и количества гостей -->
-                <div class="form-section-title" style="margin-top: 35px;">Անուն Ազգանուն</div>
-                <input type="text" class="input-text-field" placeholder="Մուտքագրեք այստեղ" required>
-                
-                <div class="form-section-title">Հյուրերի թիվը</div>
-                <input type="text" class="input-text-field" placeholder="Նշեք քանակը" required>
-                
-                <button type="submit" class="submit-button-style">Պատասխանել</button>
-            </form>
-            
-            <div id="successNotification">Սիրով սպասում ենք Ձեզ:</div>
+         <div style="text-align: center; margin: 40px 0 20px 0;">
+    <a href="https://wa.me/37433460626?text=%D5%80%D5%A1%D5%BD%D5%BF%D5%A1%D5%BF%D5%A1%D5%BF%D5%A5%D5%AC%20%D5%B6%D5%A5%D6%80%D5%AF%D5%A1%D5%B5%D5%A1%D6%81%D5%B8%D6%82%D5%B4%D5%A5" 
+       target="_blank" 
+       style="display: inline-block; background-color: #1a1a1a; color: #ffffff; padding: 16px 32px; border: 1px solid #ffffff; border-radius: 30px; text-decoration: none; font-size: 16px; letter-spacing: 1px; font-family: sans-serif; font-weight: bold; box-shadow: 0 4px 15px rgba(255,255,255,0.1);">
+       ՊԱՏԱՍԽԱՆԵԼ (WHATSAPP)
+    </a>
+</div>
 
-            <!-- Изящный футер -->
-            <div class="footer-love-svg">
-                <svg width="70" height="40" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 35C25 20 35 15 45 25C55 15 65 20 70 35" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M35 40C42 28 50 25 58 32C66 25 72 28 78 40" stroke="#ffffff" stroke-width="1" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <div class="footer-text">Սիրով սպասում ենք Ձեզ</div>
+        <div id="successNotification" style="display: none;"></div>
+
+        <div class="footer-love-svg">
+            <svg width="70" height="40" viewBox="0 0 100 40">
+                <path d="M20 35C25 20 35 15 50 25C65 15 75 20 80 35" fill="none" stroke="#ffffff" stroke-width="1"/>
+                <path d="M35 40C42 28 50 25 50 25C50 25 58 28 65 40" fill="none" stroke="#ffffff" stroke-width="1"/>
+            </svg>
         </div>
-
+        <div class="footer-text">Սիրով սպասում ենք Ձեզ</div>
     </div>
-
-    <!-- Интерактивный сценарий отправки формы -->
-            <script>
-        document.getElementById('mainRsvpForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Собираем введенные гостем данные
-            const nameValue = this.querySelector('input[type="text"]:of-type(1)').value;
-            const guestsValue = this.querySelector('input[type="text"]:of-type(2)').value;
-            const presenceValue = this.querySelector('input[name="presence"]:checked').value === 'yes' ? 'Կգանք' : 'Չենք կարողանա գալ';
-
-            // Формируем красивый текст сообщения для вас
-            let message = `Привет! Ответ на приглашение:\n`;
-            message += `👤 Имя: ${nameValue}\n`;
-            message += `❓ Присутствие: ${presenceValue}\n`;
-            if (this.querySelector('input[name="presence"]:checked').value === 'yes') {
-                message += `👥 Количество гостей: ${guestsValue}`;
-            }
-
-            // Создаем прямую ссылку на ваш WhatsApp с готовым текстом
-            const phoneNumber = '37433460626';
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-            // Сразу перенаправляем гостя в WhatsApp для отправки сообщения
-            window.open(whatsappUrl, '_blank');
-
-            // На самом сайте переключаем экран на красивое уведомление
-            document.getElementById('mainRsvpForm').style.display = 'none';
-            document.getElementById('successNotification').style.display = 'block';
-        });
-    </script>
-
-
 
 </body>
 </html>
