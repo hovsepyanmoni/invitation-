@@ -239,7 +239,7 @@
             margin-top: 5px;
         }
 
-        /* ЭКРАН 3: Локация и новая RSVP Форма */
+        /* ЭКРАН 3: Локация и RSVP Форма */
         .screen-rsvp {
             padding: 40px 0 80px 0;
         }
@@ -292,7 +292,7 @@
             opacity: 0.9;
         }
 
-        /* ЭЛЕГАНТНАЯ ФОРМА ОТВЕТА */
+        /* ЭЛЕГАНТНАЯ ФОРМА ОТВЕТА С КОЛИЧЕСТВОМ ГОСТЕЙ */
         .rsvp-box {
             max-width: 340px;
             margin: 0 auto;
@@ -321,6 +321,21 @@
 
         .input-field:focus {
             border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Стилизация выпадающего списка */
+        select.input-field {
+            text-align-last: center;
+            cursor: pointer;
+            appearance: none; /* Убираем стандартную стрелочку */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%23ffffff'><path d='M0 0l5 6 5-6z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 15px) center;
+        }
+
+        select.input-field option {
+            background-color: #111111;
+            color: #ffffff;
         }
 
         .radio-group {
@@ -470,19 +485,31 @@
             <div class="restaurant-address">Արամ Մանուկյան 1նրբ. 8</div>
             <a href="https://maps.google.com/?q=Imperial+Hall+Aram+Manukyan+Yerevan" target="_blank" class="map-button">Ինչպես հասնել</a>
             
-            <div class="rsvp-form-title">Շնորհակալ կլინենք, եթե նախապես հաստատեք Ձեր ներկայությունը</div>
+            <div class="rsvp-form-title">Շնորհակալ կլինենք, եթե նախապես հաստատեք Ձեր ներկայությունը</div>
             
-            <!-- ИНТЕРАКТИВНАЯ АНКЕТА ВМЕСТО WHATSAPP -->
+            <!-- ИНТЕРАКТИВНАЯ АНКЕТА С ПОЛЕМ ДЛЯ КОЛИЧЕСТВА ГОСТЕЙ -->
             <div class="rsvp-box">
                 <form id="rsvpForm" onsubmit="submitForm(event)">
+                    <!-- Поле ввода имени -->
                     <input type="text" id="guestName" class="input-field" placeholder="Ձեր Անունը" required>
                     
+                    <!-- Выпадающий список для выбора количества гостей -->
+                    <select id="guestCount" class="input-field" id="guestCountSelect">
+                        <option value="" disabled selected>Հյուրերի քանակը (Количество гостей)</option>
+                        <option value="1">1 հոգի (1 человек)</option>
+                        <option value="2">2 հոգի (2 человека)</option>
+                        <option value="3">3 հոգի (3 человека)</option>
+                        <option value="4">4 հոգի (4 человека)</option>
+                        <option value="5">5 հոգի (5 человек)</option>
+                    </select>
+                    
+                    <!-- Кнопки выбора присутствия -->
                     <div class="radio-group">
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="yes" checked> Կգամ
+                            <input type="radio" name="attendance" value="yes" checked onclick="toggleGuestCount(true)"> Կգամ
                         </label>
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="no"> Չեմ կարողանա
+                            <input type="radio" name="attendance" value="no" onclick="toggleGuestCount(false)"> Չեմ կարողանա
                         </label>
                     </div>
                     
@@ -503,7 +530,19 @@
 
     <!-- СКРИПТЫ -->
     <script>
-        // Функция для обработки формы ответа
+        // Скрытие выбора гостей, если человек выбирает "Не смогу прийти"
+        function toggleGuestCount(show) {
+            const selectField = document.getElementById('guestCount');
+            if (show) {
+                selectField.style.display = 'block';
+                selectField.required = true;
+            } else {
+                selectField.style.display = 'none';
+                selectField.required = false;
+            }
+        }
+
+        // Функция для обработки отправки формы
         function submitForm(event) {
             event.preventDefault();
             document.getElementById('rsvpForm').style.display = 'none';
