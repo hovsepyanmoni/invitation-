@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@300;400&family=Noto+Sans+Armenian:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+Armenian:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -68,10 +68,10 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Изящное сплетение инициалов Գ и Մ */
+        /* Изящное сплетение инициалов Գ и Մ с обновленным шрифтом */
         .initials-box {
             position: relative;
-            height: 200px;
+            height: 220px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,31 +79,35 @@
         }
 
         .big-letter {
-            font-family: 'Noto Serif Armenian', serif;
-            font-size: 8.5rem;
+            font-family: 'Noto Serif Armenian', 'Times New Roman', serif;
+            font-size: 9.5rem; /* Слегка увеличили для грациозности */
             font-weight: 300;
+            font-style: italic; /* Шрифты в наклонном виде сплетаются намного изящнее */
             position: absolute;
             line-height: 1;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.7);
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.8);
         }
 
         .letter-g {
-            transform: translate(-35px, -20px);
+            transform: translate(-45px, -15px);
             opacity: 0.95;
+            color: #ffffff;
         }
 
         .letter-m {
-            transform: translate(35px, 20px);
-            opacity: 0.95;
+            transform: translate(35px, 25px);
+            opacity: 0.90;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .ampersand-center {
             font-family: 'Noto Serif Armenian', serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.2);
             position: absolute;
             z-index: 2;
+            transform: translate(-5px, 5px);
         }
 
         .hero-date {
