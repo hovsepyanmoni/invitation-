@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Նշանադրության Հրավեր</title>
     
+    <!-- Подключаем изысканный каллиграфический шрифт для латинских инициалов G & M -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -70,7 +71,7 @@
         /* Воздушная, тончайшая каллиграфическая монограмма G & M без обрезания хвостов */
         .initials-box {
             position: relative;
-            height: 180px; /* Увеличенная высота, чтобы поместились все завитки */
+            height: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -82,7 +83,7 @@
             font-size: 7.5rem;
             font-weight: 400;
             position: absolute;
-            line-height: 1.4; /* Свободный межстрочный интервал, чтобы браузер не срезал буквы */
+            line-height: 1.4;
             opacity: 0.7;
             color: #ffffff;
             text-shadow: 1px 2px 10px rgba(0,0,0,0.5);
@@ -291,7 +292,7 @@
             opacity: 0.9;
         }
 
-        /* ЭЛЕГАНТНАЯ ФОРМА ОТВЕТА С ПОЛЕМ ДЛЯ ГОСТЕЙ */
+        /* ЭЛЕГАНТНАЯ ФОРМА ОТВЕТА */
         .rsvp-box {
             max-width: 340px;
             margin: 0 auto;
@@ -322,7 +323,7 @@
             border-color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Красивый список выбора гостей */
+        /* Список выбора гостей */
         select.input-field {
             text-align-last: center;
             cursor: pointer;
@@ -411,6 +412,7 @@
 
     <div class="container">
 
+        <!-- ЭКРАН 1: Главная обложка -->
         <div class="screen-hero">
             <div class="hero-title">Նշանադրության հրավեր</div>
             
@@ -426,6 +428,7 @@
             </div>
         </div>
 
+        <!-- ЭКРАН 2: Текст приглашения, календарь и таймер -->
         <div class="screen-details">
             <div class="greeting-title">Հարգելի բարեկամներ և ընկերներ,</div>
             
@@ -454,6 +457,7 @@
             <div class="calendar-line" style="margin-top: 0;"></div>
             <div class="time-display">18:00</div>
 
+            <!-- ОБРАТНЫЙ ОТСЧЕТ -->
             <div class="calendar-line" style="margin-bottom: 20px; width: 50px; opacity: 0.2;"></div>
             <div class="countdown-container">
                 <div class="countdown-item">
@@ -475,6 +479,7 @@
             </div>
         </div>
 
+        <!-- ЭКРАН 3: Локация и Форма RSVP -->
         <div class="screen-rsvp">
             <div class="restaurant-name">Imperial Hall</div>
             <div class="restaurant-address">Արամ Մանուկյան 1նրբ. 8</div>
@@ -482,11 +487,20 @@
             
             <div class="rsvp-form-title">Շնորհակալ կլինենք, եթե նախապես հաստատեք Ձեր ներկայությունը</div>
             
+            <!-- АНКЕТА RSVP С ПОДДЕРЖКОЙ ОТПРАВКИ НА ПОЧТУ -->
             <div class="rsvp-box">
                 <form id="rsvpForm" onsubmit="submitForm(event)">
-                    <input type="text" id="guestName" class="input-field" placeholder="Ձեր Անունը" required>
                     
-                    <select id="guestCount" class="input-field">
+                    <!-- Ваш личный ключ Web3Forms интегрирован сюда -->
+                    <input type="hidden" name="access_key" value="Fac37492-ab6a-4f68-a01e-acb17dee1a95">
+                    <input type="hidden" name="subject" value="Новый ответ на приглашение!">
+                    <input type="hidden" name="from_name" value="Сайт Пригласительный">
+
+                    <!-- Поле ввода имени -->
+                    <input type="text" name="Имя гостя" id="guestName" class="input-field" placeholder="Ձեր Անունը" required>
+                    
+                    <!-- Выпадающий список для выбора количества гостей -->
+                    <select name="Количество гостей" id="guestCount" class="input-field" required>
                         <option value="" disabled selected>Հյուրերի քանակը (Количество гостей)</option>
                         <option value="1">1 հոգի (1 человек)</option>
                         <option value="2">2 հոգի (2 человека)</option>
@@ -495,16 +509,17 @@
                         <option value="5">5 հոգի (5 человек)</option>
                     </select>
                     
+                    <!-- Кнопки выбора присутствия -->
                     <div class="radio-group">
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="yes" checked onclick="toggleGuestCount(true)"> Կգամ
+                            <input type="radio" name="Присутствие" value="Приду (Կգամ)" checked onclick="toggleGuestCount(true)"> Կգամ
                         </label>
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="no" onclick="toggleGuestCount(false)"> Չեմ կարողանա
+                            <input type="radio" name="Присутствие" value="Не смогу (Չեմ կարողանա)" onclick="toggleGuestCount(false)"> Չեմ կարողանա
                         </label>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Ուղարկել</button>
+                    <button type="submit" id="submitBtn" class="submit-btn">Ուղարկել</button>
                 </form>
                 <div id="successMsg" class="success-message">Շնորհակալություն, Ձեր պատասխանը գրանցված է: ✨</div>
             </div>
@@ -519,24 +534,55 @@
         </div>
     </div>
 
+    <!-- СКРИПТЫ -->
     <script>
-        // Умное скрытие количества гостей, если человек нажал "Не смогу"
         function toggleGuestCount(show) {
             const selectField = document.getElementById('guestCount');
             if (show) {
                 selectField.style.display = 'block';
                 selectField.required = true;
             } else {
+                selectField.value = "0";
                 selectField.style.display = 'none';
                 selectField.required = false;
             }
         }
 
-        // Обработка успешного ответа
+        // Функция отправки данных формы на почту через Web3Forms
         function submitForm(event) {
             event.preventDefault();
-            document.getElementById('rsvpForm').style.display = 'none';
-            document.getElementById('successMsg').style.display = 'block';
+            
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "Ուղարկվում է...";
+            btn.disabled = true;
+
+            const formData = new FormData(document.getElementById('rsvpForm'));
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    document.getElementById('rsvpForm').style.display = 'none';
+                    document.getElementById('successMsg').style.display = 'block';
+                } else {
+                    alert("Սխալ տեղի ունեցավ: Խնդրում ենք կրկին փորձել:");
+                    btn.innerText = "Ուղարկել";
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                alert("Սխալ տեղի ունեցավ: Խնդրում ենք կրկին փորձել:");
+                btn.innerText = "Ուղարկել";
+                btn.disabled = false;
+            });
         }
 
         // Таймер обратного отсчета
@@ -568,3 +614,4 @@
     </script>
 </body>
 </html>
+
