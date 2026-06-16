@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Նշանադրության Հրավեր</title>
     
-    <!-- Подключаем качественные армянские шрифты Google Fonts -->
+    <!-- Подключаем утонченные шрифты и узорный каллиграфический шрифт для инициалов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+Armenian:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -18,11 +18,12 @@
         }
 
         body {
-            font-family: 'Noto Sans Armenian', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #ffffff;
             background-color: #000000;
             line-height: 1.6;
             overflow-x: hidden;
+            font-weight: 300;
         }
 
         /* КИНЕМАТОГРАФИЧНЫЙ ФОН */
@@ -34,14 +35,12 @@
             width: 100%;
             max-width: 500px;
             height: 100vh;
-            /* Ссылка на ваше фоновое изображение на GitHub */
             background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.8)), url('IMG_8665_SnapseedCopy.jpeg');
             background-size: cover;
             background-position: center;
             z-index: -1;
         }
 
-        /* Главный контейнер для контента */
         .container {
             width: 100%;
             max-width: 500px;
@@ -61,63 +60,64 @@
         }
 
         .hero-title {
-            font-size: 1.3rem;
-            font-weight: 300;
-            letter-spacing: 0.15em;
+            font-size: 1.15rem;
+            font-weight: 200;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             opacity: 0.9;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Миниатюрное и утонченное сплетение инициалов Գ и Մ */
+        /* Высокохудожественное, узорное сплетение монограммы */
         .initials-box {
             position: relative;
-            height: 180px;
+            height: 220px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 30px 0;
+            margin: 20px 0;
         }
 
         .big-letter {
-            font-family: 'Noto Serif Armenian', 'Times New Roman', serif;
-            font-size: 7.2rem; /* Оптимальный утонченный размер */
-            font-weight: 300;
-            font-style: italic;
+            font-family: 'Monsieur La Doulaise', cursive;
+            font-size: 11rem; /* Увеличенный размер для каллиграфических завитков */
+            font-weight: 400;
             position: absolute;
             line-height: 1;
-            text-shadow: 1px 3px 10px rgba(0,0,0,0.6);
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
         }
 
         .letter-g {
-            transform: translate(-30px, -12px);
-            opacity: 0.95;
+            transform: translate(-35px, -20px);
+            opacity: 0.85;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .letter-m {
-            transform: translate(25px, 15px);
-            opacity: 0.95;
+            transform: translate(35px, 20px);
+            opacity: 0.85;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .ampersand-center {
-            font-family: 'Noto Serif Armenian', serif;
-            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.3);
             position: absolute;
             z-index: 2;
-            transform: translate(-2px, 2px);
+            transform: translate(2px, -5px);
         }
 
         .hero-date {
-            font-size: 1.9rem;
-            font-weight: 300;
-            letter-spacing: 0.05em;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.7rem;
+            font-weight: 200;
+            letter-spacing: 0.1em;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             display: inline-block;
             margin: 0 auto;
             padding-top: 15px;
-            width: 60%;
+            width: 50%;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
@@ -127,67 +127,68 @@
         }
 
         .greeting-title {
-            font-family: 'Noto Serif Armenian', serif;
+            font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 1.6rem;
             margin-bottom: 35px;
             opacity: 0.95;
+            font-weight: 400;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .main-invitation-text {
-            font-size: 1rem;
-            font-weight: 300;
-            line-height: 1.9;
-            letter-spacing: 0.02em;
+            font-size: 0.95rem;
+            font-weight: 200;
+            line-height: 2;
+            letter-spacing: 0.03em;
             margin-bottom: 50px;
-            opacity: 0.9;
+            opacity: 0.85;
             text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
         .month-title {
-            font-family: 'Noto Serif Armenian', serif;
+            font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin-bottom: 5px;
         }
 
         .calendar-line {
-            width: 40px;
+            width: 30px;
             height: 1px;
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.4);
             margin: 15px auto 25px auto;
         }
 
-        /* Календарная сетка */
         .days-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 10px 5px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 300;
             max-width: 320px;
             margin: 0 auto 40px auto;
-            opacity: 0.6;
+            opacity: 0.5;
+            letter-spacing: 0.05em;
         }
 
         .day-num-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 15px 5px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             max-width: 320px;
             margin: 0 auto 45px auto;
+            font-weight: 200;
         }
 
         .day-cell {
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
-        /* Выделенный день с кольцом */
         .active-day-cell {
             opacity: 1;
-            font-weight: 500;
+            font-weight: 400;
             position: relative;
             display: flex;
             justify-content: center;
@@ -197,79 +198,115 @@
         .active-day-cell::after {
             content: '💍';
             position: absolute;
-            font-size: 1.4rem;
-            top: -18px;
+            font-size: 1.3rem;
+            top: -20px;
             opacity: 0.8;
         }
 
         .time-display {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 200;
             letter-spacing: 0.05em;
             margin-top: 20px;
+            margin-bottom: 40px;
         }
 
-        /* ЭКРАН 3: Локация и Форма RSVP */
+        /* Тонкие стили для таймера */
+        .countdown-container {
+            max-width: 340px;
+            margin: 30px auto 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 1.8rem;
+            font-weight: 200;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+        }
+
+        .countdown-label {
+            font-size: 0.65rem;
+            font-weight: 200;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.5;
+            margin-top: 5px;
+        }
+
+        /* ЭКРАН 3: Локация */
         .screen-rsvp {
             padding: 40px 0 80px 0;
         }
 
         .restaurant-name {
-            font-size: 1.8rem;
-            font-weight: 500;
+            font-size: 1.7rem;
+            font-weight: 400;
             letter-spacing: 0.05em;
             margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
         }
 
         .restaurant-address {
-            font-size: 0.85rem;
-            font-weight: 300;
-            opacity: 0.7;
+            font-size: 0.8rem;
+            font-weight: 200;
+            opacity: 0.6;
             margin-bottom: 25px;
+            letter-spacing: 0.02em;
         }
 
         .map-button {
             display: inline-block;
             padding: 12px 35px;
-            border: 1px solid #ffffff;
+            border: 1px solid rgba(255,255,255,0.4);
             border-radius: 50px;
             color: #ffffff;
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             margin-bottom: 70px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.03);
             transition: all 0.3s ease;
+            font-weight: 300;
         }
 
         .map-button:hover {
+            border-color: #ffffff;
             background: #ffffff;
             color: #000000;
         }
 
         .rsvp-form-title {
-            font-size: 1.25rem;
-            font-weight: 400;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            font-weight: 200;
+            line-height: 1.7;
             margin-bottom: 35px;
-            padding: 0 10px;
+            padding: 0 15px;
+            letter-spacing: 0.03em;
+            opacity: 0.9;
         }
 
-        /* Стиль для кнопки WhatsApp */
         .whatsapp-btn {
             display: inline-block; 
-            background-color: rgba(255, 255, 255, 0.05); 
+            background-color: rgba(255, 255, 255, 0.03); 
             color: #ffffff; 
-            padding: 16px 40px; 
+            padding: 16px 45px; 
             border: 1px solid #ffffff; 
             border-radius: 30px; 
             text-decoration: none; 
-            font-size: 0.85rem; 
-            letter-spacing: 0.15em; 
-            font-family: 'Noto Sans Armenian', sans-serif; 
-            font-weight: 500; 
-            box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+            font-size: 0.8rem; 
+            letter-spacing: 0.2em; 
+            font-weight: 300; 
+            box-shadow: 0 4px 15px rgba(255,255,255,0.03);
             transition: all 0.3s ease;
             text-transform: uppercase;
         }
@@ -277,24 +314,25 @@
         .whatsapp-btn:hover {
             background-color: #ffffff;
             color: #000000;
-            box-shadow: 0 4px 20px rgba(255,255,255,0.2);
+            box-shadow: 0 4px 20px rgba(255,255,255,0.15);
         }
 
         .footer-love-svg {
-            margin: 50px auto 25px auto;
-            opacity: 0.7;
+            margin: 60px auto 25px auto;
+            opacity: 0.5;
         }
 
         .footer-text {
             font-size: 1.1rem;
-            font-weight: 300;
-            opacity: 0.9;
+            font-weight: 200;
+            opacity: 0.8;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
 
-    <!-- Задний зафиксированный фон -->
     <div class="background-overlay"></div>
 
     <div class="container">
@@ -310,13 +348,12 @@
             </div>
             
             <div>
-                <!-- Ваша измененная дата на обложке -->
                 <div class="hero-date">29.09.2026</div>
-                <div class="scroll-text" style="margin-top: 25px; font-size: 0.6rem; letter-spacing: 0.5em; opacity: 0.5;">scroll</div>
+                <div class="scroll-text" style="margin-top: 25px; font-size: 0.55rem; letter-spacing: 0.6em; opacity: 0.4; text-transform: uppercase;">scroll</div>
             </div>
         </div>
 
-        <!-- ЭКРАН 2: Текст приглашения и точный календарь -->
+        <!-- ЭКРАН 2: Текст приглашения, календарь и таймер -->
         <div class="screen-details">
             <div class="greeting-title">Հարգելի բարեկամներ և ընկերներ,</div>
             
@@ -327,12 +364,10 @@
             <div class="month-title">Սեպտեմբեր</div>
             <div class="calendar-line"></div>
             
-            <!-- Дни недели -->
             <div class="days-grid">
                 <div>Երկ</div><div>Երք</div><div>Չոր</div><div>Հնգ</div><div>Ուրբ</div><div>Շբթ</div><div>Կիր</div>
             </div>
             
-            <!-- Точная сетка на Сентябрь 2026 с выделенным 29 числом (Вторник) -->
             <div class="day-num-grid">
                 <div class="day-cell"></div> 
                 <div class="day-cell">1</div><div class="day-cell">2</div><div class="day-cell">3</div><div class="day-cell">4</div><div class="day-cell">5</div><div class="day-cell">6</div>
@@ -340,16 +375,36 @@
                 <div class="day-cell">14</div><div class="day-cell">15</div><div class="day-cell">16</div><div class="day-cell">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell">20</div>
                 <div class="day-cell">21</div><div class="day-cell">22</div><div class="day-cell">23</div><div class="day-cell">24</div><div class="day-cell">25</div><div class="day-cell">26</div><div class="day-cell">27</div>
                 <div class="day-cell">28</div>
-                <!-- Выделено кольцом вторник, 29 сентября -->
                 <div class="active-day-cell">29</div> 
                 <div class="day-cell">30</div>
             </div>
             
             <div class="calendar-line" style="margin-top: 0;"></div>
             <div class="time-display">18:00</div>
+
+            <!-- ОБРАТНЫЙ ОТСЧЕТ -->
+            <div class="calendar-line" style="margin-bottom: 20px; width: 50px; opacity: 0.2;"></div>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Օր</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Ժամ</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Րոպե</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Վրկ</span>
+                </div>
+            </div>
         </div>
 
-        <!-- ЭКРАН 3: Локация и чистая форма подтверждения -->
+        <!-- ЭКРАН 3: Локация и финальная кнопка -->
         <div class="screen-rsvp">
             <div class="restaurant-name">Imperial Hall</div>
             <div class="restaurant-address">Արամ Մանուկյան 1նրբ. 8</div>
@@ -375,5 +430,33 @@
         </div>
     </div>
 
+    <!-- СКРИПТ РАБОТЫ ОБРАТНОГО ОТСЧЕТА -->
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date('September 29, 2026 18:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = eventDate - now;
+
+            if (difference > 0) {
+                const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+                document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+                document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+                document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+            } else {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
