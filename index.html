@@ -444,7 +444,7 @@
 
             // Отправляем данные методом POST в Google Таблицу
             fetch(googleScriptUrl + `?name=${encodeURIComponent(nameValue)}&presence=${encodeURIComponent(presenceValue)}&guests=${encodeURIComponent(guestsValue)}`, {
-                method: 'POST'
+                method: 'GET'
             })
             .then(() => {
                 // Прячем форму и показываем финальный текст
