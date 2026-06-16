@@ -425,40 +425,34 @@
     </div>
 
     <!-- Интерактивный сценарий отправки формы -->
-        <script>
+            <script>
         document.getElementById('mainRsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Кнопка меняет текст во время отправки
             const submitBtn = this.querySelector('.submit-button-style');
             submitBtn.innerText = 'Ուղարկվում է...';
             submitBtn.disabled = true;
 
-            // Собираем данные из полей ввода формы
             const nameValue = this.querySelector('input[type="text"]:of-type(1)').value;
             const guestsValue = this.querySelector('input[type="text"]:of-type(2)').value;
             const presenceValue = this.querySelector('input[name="presence"]:checked').value === 'yes' ? 'Կգանք' : 'Չենք գա';
 
-            // Вставьте сюда вашу скопированную ссылку из Google скриптов (кавычки оставьте)
-            const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbxeXVaIEQhb8lLRS3IZMiyUqIIOWElW6dAbJRtA5tihghIW3464tpRNaUvLzyMHk0dO/exec';
+            // СЮДА ВСТАВЬТЕ СКОПИРОВАННУЮ ССЫЛКУ ИЗ GOOGLE
+            const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbzk5RloypudrcDp6ZVDLD663KE-9l7fcYPRWSliY0_PCQQQaU3AzAczE0DQdynB-lZU/exec';
 
-            // Отправляем данные методом POST в Google Таблицу
-            fetch(googleScriptUrl + `?name=${encodeURIComponent(nameValue)}&presence=${encodeURIComponent(presenceValue)}&guests=${encodeURIComponent(guestsValue)}`, {
-                method: 'GET'
-            })
-            .then(() => {
-                // Прячем форму и показываем финальный текст
-                document.getElementById('mainRsvpForm').style.display = 'none';
-                document.getElementById('successNotification').style.display = 'block';
-            })
-            .catch(error => {
-                console.error('Ошибка отправки!', error);
-                // На случай сетевого сбоя всё равно переключим экран, чтобы гость не паниковал
-                document.getElementById('mainRsvpForm').style.display = 'none';
-                document.getElementById('successNotification').style.display = 'block';
-            });
+            // Отправка через JSONP (это 100% обходит любые блокировки телефона)
+            const script = document.createElement('script');
+            script.src = googleScriptUrl + `?name=${encodeURIComponent(nameValue)}&presence=${encodeURIComponent(presenceValue)}&guests=${encodeURIComponent(guestsValue)}&callback=onRsvpSuccess`;
+            document.body.appendChild(script);
         });
+
+        // Функция, которая сработает сразу после успешной записи в таблицу
+        function onRsvpSuccess(response) {
+            document.getElementById('mainRsvpForm').style.display = 'none';
+            document.getElementById('successNotification').style.display = 'block';
+        }
     </script>
+
 
 </body>
 </html>
